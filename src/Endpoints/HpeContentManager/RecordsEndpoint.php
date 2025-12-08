@@ -1,9 +1,9 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Endpoints\HpeContentManager;
+namespace RouteConnex\RouteConnexSdkPhp\Endpoints\HpeContentManager;
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\HpeContentManagerEndpoint;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\HpeContentManagerEndpoint;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 class RecordsEndpoint extends HpeContentManagerEndpoint
 {

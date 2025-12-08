@@ -1,6 +1,6 @@
-# elementroute-sdk-php
+# route-connex-sdk-php
 
-PHP SDK for the [elementROUTE API](https://www.elementroute.com)
+PHP SDK for the [RouteConnex API](https://www.routeconnex.com)
 
 ## Requirements
 
@@ -12,24 +12,24 @@ PHP SDK for the [elementROUTE API](https://www.elementroute.com)
 Install the SDK using Composer:
 
 ```bash
-composer require elementroute/elementroute-sdk-php
+composer require route-connex/route-connex-sdk-php
 ```
 
 ## Configuration
 
-To use the SDK, you'll need your ElementRoute API credentials:
+To use the SDK, you'll need your RouteConnex API credentials:
 - **Client ID**
 - **Client Secret**
 
-You can obtain these credentials from your ElementRoute account.
+You can obtain these credentials from your RouteConnex account.
 
 ## Basic Usage
 
 ### Initialize the Client
 
 ```php
-use ElementRoute\ElementRouteSdkPhp\ErClient;
-use ElementRoute\ElementRouteSdkPhp\ApiVersion;
+use RouteConnex\RouteConnexSdkPhp\ErClient;
+use RouteConnex\RouteConnexSdkPhp\ApiVersion;
 
 // Create a new client instance
 $client = ErClient::make(
@@ -39,7 +39,7 @@ $client = ErClient::make(
 );
 
 // Optional: Set a custom base URL (for testing or different environments)
-$client->setBaseUrl('https://elementroute.local:8080/api');
+$client->setBaseUrl('https://routeconnex.local:8080/api');
 ```
 
 ### API Versioning
@@ -47,7 +47,7 @@ $client->setBaseUrl('https://elementroute.local:8080/api');
 The SDK currently supports API version V1:
 
 ```php
-use ElementRoute\ElementRouteSdkPhp\ApiVersion;
+use RouteConnex\RouteConnexSdkPhp\ApiVersion;
 
 $client = ErClient::make(
     clientId: 'your-client-id',
@@ -58,16 +58,16 @@ $client = ErClient::make(
 
 ## Available Endpoints
 
-The SDK provides a fluent interface for accessing ElementRoute API endpoints:
+The SDK provides a fluent interface for accessing RouteConnex API endpoints:
 
-### ElementRoute Endpoints
+### RouteConnex Endpoints
 
 #### About Endpoint
 
-Get information about the ElementRoute API:
+Get information about the RouteConnex API:
 
 ```php
-$response = $client->elementroute()->about()->get();
+$response = $client->routeConnex()->about()->get();
 ```
 
 #### Test Authentication
@@ -75,7 +75,7 @@ $response = $client->elementroute()->about()->get();
 Test your API authentication:
 
 ```php
-$response = $client->elementroute()->testAuth()->get();
+$response = $client->routeConnex()->testAuth()->get();
 ```
 
 ### Microsoft SharePoint Integration
@@ -157,7 +157,7 @@ $runId = $data['data']['id'];
 
 ### Run Status Checking
 
-Many operations in ElementRoute are asynchronous and return a run ID. You can check the status of these operations:
+Many operations in RouteConnex are asynchronous and return a run ID. You can check the status of these operations:
 
 ```php
 // Get run status
@@ -213,7 +213,7 @@ All endpoint methods return a PSR-7 `ResponseInterface` object:
 ```php
 use Psr\Http\Message\ResponseInterface;
 
-$response = $client->elementroute()->about()->get();
+$response = $client->routeConnex()->about()->get();
 
 // Get status code
 $statusCode = $response->getStatusCode(); // 200
@@ -236,8 +236,8 @@ if ($data['status'] === 'success') {
 The SDK throws exceptions for various error conditions:
 
 ```php
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidHttpMethodException;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\NotAuthenticatedException;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\NotAuthenticatedException;
 use GuzzleHttp\Exception\ServerException;
 
 try {
@@ -263,11 +263,11 @@ try {
 You can make custom HTTP requests using the low-level HTTP method:
 
 ```php
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 $response = $client->runHttpRequest(
     HttpMethod::GET,
-    'elementroute/about'
+    'route-connex/about'
 );
 ```
 
@@ -277,7 +277,7 @@ The SDK supports fluent method chaining for clean, readable code:
 
 ```php
 $response = ErClient::make('client-id', 'client-secret')
-    ->setBaseUrl('https://elementroute.local:8080/api')
+    ->setBaseUrl('https://routeconnex.local:8080/api')
     ->microsoftSharepoint()
     ->files()
     ->get(query: ['site_name' => 'my-site']);
@@ -290,7 +290,7 @@ $response = ErClient::make('client-id', 'client-secret')
 - `make(string $clientId, string $clientSecret, ApiVersion $version = ApiVersion::V1): ErClient` - Create a new client instance
 - `setBaseUrl(string $baseUrl): ErClient` - Set custom base URL
 - `getBaseUrl(): string` - Get current base URL
-- `elementroute(): ElementrouteEndpoint` - Access ElementRoute endpoints
+- `routeConnex(): RouteConnexEndpoint` - Access RouteConnex endpoints
 - `microsoftSharepoint(): MicrosoftSharepointEndpoint` - Access Microsoft SharePoint endpoints
 - `hpeContentManager(): HpeContentManagerEndpoint` - Access HPE Content Manager endpoints
 - `run(): RunEndpoint` - Access run status endpoints
@@ -324,7 +324,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 For testing, create a `.env` file in the project root with your credentials:
 
 ```env
-BASE_URL=https://elementroute.local:8080/api/
+BASE_URL=https://routeconnex.local:8080/api/
 
 # Microsoft SharePoint Configuration
 MS_SP_CLIENT_ID=your-client-id

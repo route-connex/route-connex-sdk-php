@@ -1,8 +1,8 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Endpoints;
+namespace RouteConnex\RouteConnexSdkPhp\Endpoints;
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\HpeContentManager\RecordsEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\HpeContentManager\RecordsEndpoint;
 
 class HpeContentManagerEndpoint extends Endpoint
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp;
+namespace RouteConnex\RouteConnexSdkPhp;
 
-use ElementRoute\ElementRouteSdkPhp\Concerns as Concerns;
 use GuzzleHttp\Client;
+use RouteConnex\RouteConnexSdkPhp\Concerns as Concerns;
 
 class ErClient
 {
@@ -11,7 +11,7 @@ class ErClient
         Concerns\HasEndpoints,
         Concerns\RunsHttpRequests;
 
-    protected string $baseUrl = 'https://app.elementroute.com/api';
+    protected string $baseUrl = 'https://app.routeconnex.com/api';
 
     protected Client $client;
 

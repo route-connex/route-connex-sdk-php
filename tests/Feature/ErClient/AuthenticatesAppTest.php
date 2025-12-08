@@ -1,6 +1,6 @@
 <?php
 
-describe('ElementROUTE Authentication', function () {
+describe('RouteConnex Authentication', function () {
     it('can authenticate', function () {
         $client = $this->makeErClient();
 

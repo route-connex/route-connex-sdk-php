@@ -1,11 +1,11 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Tests;
+namespace RouteConnex\RouteConnexSdkPhp\Tests;
 
 use Dotenv\Dotenv;
-use ElementRoute\ElementRouteSdkPhp\ApiVersion;
-use ElementRoute\ElementRouteSdkPhp\ErClient;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use RouteConnex\RouteConnexSdkPhp\ApiVersion;
+use RouteConnex\RouteConnexSdkPhp\ErClient;
 
 abstract class TestCase extends BaseTestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Exceptions;
+namespace RouteConnex\RouteConnexSdkPhp\Exceptions;
 
 class NotAuthenticatedException extends \DomainException
 {

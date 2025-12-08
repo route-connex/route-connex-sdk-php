@@ -1,10 +1,10 @@
 <?php
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\Run\_RunId_Endpoint;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidHttpMethodException;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\Run\_RunId_Endpoint;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 describe('General: run/{runId}', function () {
     it('has correct path', function () {

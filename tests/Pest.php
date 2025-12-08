@@ -11,7 +11,7 @@
 |
 */
 
-uses(ElementRoute\ElementRouteSdkPhp\Tests\TestCase::class)->in(__DIR__);
+uses(RouteConnex\RouteConnexSdkPhp\Tests\TestCase::class)->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------

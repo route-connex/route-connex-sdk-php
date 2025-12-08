@@ -1,6 +1,6 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp;
+namespace RouteConnex\RouteConnexSdkPhp;
 
 enum ApiVersion: string
 {

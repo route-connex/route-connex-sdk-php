@@ -1,9 +1,9 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Concerns;
+namespace RouteConnex\RouteConnexSdkPhp\Concerns;
 
-use ElementRoute\ElementRouteSdkPhp\ErAccessToken;
 use GuzzleHttp\Exception\GuzzleException;
+use RouteConnex\RouteConnexSdkPhp\ErAccessToken;
 
 trait AuthenticatesApp
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Endpoints\Elementroute;
+namespace RouteConnex\RouteConnexSdkPhp\Endpoints\RouteConnex;
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\ElementrouteEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\RouteConnexEndpoint;
 
-class AboutEndpoint extends ElementrouteEndpoint
+class AboutEndpoint extends RouteConnexEndpoint
 {
     protected static string $path = 'about';
 

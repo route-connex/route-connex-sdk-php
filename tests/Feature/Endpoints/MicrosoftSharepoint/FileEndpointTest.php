@@ -1,10 +1,10 @@
 <?php
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\MicrosoftSharepoint\FilesEndpoint;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidHttpMethodException;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
 use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\MicrosoftSharepoint\FilesEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 describe('General: microsoft-sharepoint/file', function () {
     it('has correct path', function () {

@@ -1,34 +1,34 @@
 <?php
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\Elementroute\TestAuthEndpoint;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidHttpMethodException;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
 use Psr\Http\Message\ResponseInterface;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\RouteConnex\AboutEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
-describe('General: elementroute/test-auth', function () {
+describe('General: route-connex/about', function () {
     it('has correct path', function () {
-        $path = TestAuthEndpoint::getPath();
+        $path = AboutEndpoint::getPath();
 
-        expect($path)->toBe('elementroute/test-auth');
+        expect($path)->toBe('route-connex/about');
     });
 });
 
-describe('GET elementroute/test-auth', function () {
+describe('GET route-connex/about', function () {
     test('HTTP method is allowed', function () {
-        expect(TestAuthEndpoint::isMethodAllowed(HttpMethod::GET))->toBeTrue();
+        expect(AboutEndpoint::isMethodAllowed(HttpMethod::GET))->toBeTrue();
     });
 
-    it('requires authentication', function () {
-        expect(TestAuthEndpoint::requiresAuth(HttpMethod::GET))->toBeTrue();
+    it('does not require authentication', function () {
+        expect(AboutEndpoint::requiresAuth(HttpMethod::GET))->toBeFalse();
     });
 
     it('can run', function () {
         $client = $this->makeErClient();
-        $endpoint = new TestAuthEndpoint($client);
+        $about = new AboutEndpoint($client);
 
-        expect($endpoint)->toBeInstanceOf(TestAuthEndpoint::class);
+        expect($about)->toBeInstanceOf(AboutEndpoint::class);
 
-        $response = $endpoint->get();
+        $response = $about->get();
         $responseContent = $response->getBody()->getContents();
 
         expect($response)->toBeInstanceOf(ResponseInterface::class)
@@ -41,7 +41,7 @@ describe('GET elementroute/test-auth', function () {
     it('can run from client fluent endpoint', function () {
         $client = $this->makeErClient();
 
-        $response = $client->elementroute()->testAuth()->get();
+        $response = $client->routeConnex()->about()->get();
         $responseContent = $response->getBody()->getContents();
 
         expect($response)->toBeInstanceOf(ResponseInterface::class)
@@ -52,46 +52,46 @@ describe('GET elementroute/test-auth', function () {
     });
 });
 
-describe('POST elementroute/test-auth', function () {
+describe('POST route-connex/about', function () {
     test('HTTP method is not allowed', function () {
-        expect(TestAuthEndpoint::isMethodAllowed(HttpMethod::POST))->toBeFalse();
+        expect(AboutEndpoint::isMethodAllowed(HttpMethod::POST))->toBeFalse();
     });
 
     it('errors if try to run from client fluent endpoint with invalid HTTP method (POST)', function () {
         $client = $this->makeErClient();
-        $client->elementroute()->testAuth()->post();
+        $client->routeConnex()->about()->post();
     })->expectException(InvalidHttpMethodException::class);
 });
 
-describe('PUT elementroute/test-auth', function () {
+describe('PUT route-connex/about', function () {
     test('HTTP method is not allowed', function () {
-        expect(TestAuthEndpoint::isMethodAllowed(HttpMethod::PUT))->toBeFalse();
+        expect(AboutEndpoint::isMethodAllowed(HttpMethod::PUT))->toBeFalse();
     });
 
     it('errors if try to run from client fluent endpoint with invalid HTTP method (PUT)', function () {
         $client = $this->makeErClient();
-        $client->elementroute()->testAuth()->put();
+        $client->routeConnex()->about()->put();
     })->expectException(InvalidHttpMethodException::class);
 });
 
-describe('PATCH elementroute/test-auth', function () {
+describe('PATCH route-connex/about', function () {
     test('HTTP method is not allowed', function () {
-        expect(TestAuthEndpoint::isMethodAllowed(HttpMethod::PATCH))->toBeFalse();
+        expect(AboutEndpoint::isMethodAllowed(HttpMethod::PATCH))->toBeFalse();
     });
 
     it('errors if try to run from client fluent endpoint with invalid HTTP method (PATCH)', function () {
         $client = $this->makeErClient();
-        $client->elementroute()->testAuth()->patch();
+        $client->routeConnex()->about()->patch();
     })->expectException(InvalidHttpMethodException::class);
 });
 
-describe('DELETE elementroute/test-auth', function () {
+describe('DELETE route-connex/about', function () {
     test('HTTP method is not allowed', function () {
-        expect(TestAuthEndpoint::isMethodAllowed(HttpMethod::DELETE))->toBeFalse();
+        expect(AboutEndpoint::isMethodAllowed(HttpMethod::DELETE))->toBeFalse();
     });
 
     it('errors if try to run from client fluent endpoint with invalid HTTP method (DELETE)', function () {
         $client = $this->makeErClient();
-        $client->elementroute()->testAuth()->delete();
+        $client->routeConnex()->about()->delete();
     })->expectException(InvalidHttpMethodException::class);
 });

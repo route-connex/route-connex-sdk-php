@@ -1,10 +1,10 @@
 <?php
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\HpeContentManager\RecordsEndpoint;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidHttpMethodException;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
 use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\HpeContentManager\RecordsEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 describe('General: hpe-content-manager/records', function () {
     it('has correct path', function () {

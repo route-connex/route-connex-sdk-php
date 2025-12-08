@@ -1,24 +1,24 @@
 <?php
 
-use ElementRoute\ElementRouteSdkPhp\ErClient;
+use RouteConnex\RouteConnexSdkPhp\ErClient;
 
-describe('ElementRouteClient', function () {
+describe('RouteConnexClient', function () {
     it('cannot be instantiated with missing parameters', function () {
         ErClient::make();
     })->expectException(ArgumentCountError::class);
 
     it('can be instantiated with client configuration', function () {
-        $elementRoute = ErClient::make('app_id', 'app_secret');
+        $client = ErClient::make('app_id', 'app_secret');
 
-        expect($elementRoute)->toBeInstanceOf(ErClient::class);
+        expect($client)->toBeInstanceOf(ErClient::class);
     });
 
     it('a base url can be changed in an instance', function () {
-        $elementRoute = ErClient::make('app_id', 'app_secret');
-        $previousUrl = $elementRoute->getBaseUrl();
-        $elementRoute->setBaseUrl('http://localhost/test');
+        $client = ErClient::make('app_id', 'app_secret');
+        $previousUrl = $client->getBaseUrl();
+        $client->setBaseUrl('http://localhost/test');
 
-        expect($elementRoute->getBaseUrl())->toBe('http://localhost/test')
-            ->and($elementRoute->getBaseUrl())->not()->toBe($previousUrl);
+        expect($client->getBaseUrl())->toBe('http://localhost/test')
+            ->and($client->getBaseUrl())->not()->toBe($previousUrl);
     });
 });

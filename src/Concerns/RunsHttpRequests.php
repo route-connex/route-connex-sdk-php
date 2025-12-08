@@ -1,11 +1,11 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Concerns;
+namespace RouteConnex\RouteConnexSdkPhp\Concerns;
 
-use ElementRoute\ElementRouteSdkPhp\Exceptions\NotAuthenticatedException;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\NotAuthenticatedException;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 trait RunsHttpRequests
 {

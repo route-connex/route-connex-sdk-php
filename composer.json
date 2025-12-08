@@ -1,6 +1,6 @@
 {
-    "name": "elementroute/elementroute-sdk-php",
-    "description": "PHP SDK for elementROUTE API",
+    "name": "route-connex/route-connex-sdk-php",
+    "description": "PHP SDK for RouteConnex API",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ElementRoute\\ElementRouteSdkPhp\\": "src/"
+            "RouteConnex\\RouteConnexSdkPhp\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ElementRoute\\ElementRouteSdkPhp\\Tests\\": "tests/"
+            "RouteConnex\\RouteConnexSdkPhp\\Tests\\": "tests/"
         }
     },
     "scripts": {

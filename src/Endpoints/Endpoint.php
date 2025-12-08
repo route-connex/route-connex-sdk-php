@@ -1,13 +1,13 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Endpoints;
+namespace RouteConnex\RouteConnexSdkPhp\Endpoints;
 
-use ElementRoute\ElementRouteSdkPhp\ErClient;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidEndpointException;
-use ElementRoute\ElementRouteSdkPhp\Exceptions\InvalidHttpMethodException;
-use ElementRoute\ElementRouteSdkPhp\HttpMethod;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use RouteConnex\RouteConnexSdkPhp\ErClient;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidEndpointException;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\HttpMethod;
 
 abstract class Endpoint
 {
@@ -80,7 +80,7 @@ abstract class Endpoint
     public function getPathWithReplaces(): string
     {
         return preg_replace_callback(
-            pattern: '/(\{.*?\})/',
+            pattern: '/(\{.*?})/',
             callback: fn ($matches) => $this->{trim($matches[1], '{}')},
             subject: static::getPath(),
         );

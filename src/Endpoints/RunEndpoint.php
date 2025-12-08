@@ -1,8 +1,8 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Endpoints;
+namespace RouteConnex\RouteConnexSdkPhp\Endpoints;
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\Run\_RunId_Endpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\Run\_RunId_Endpoint;
 
 class RunEndpoint extends Endpoint
 {

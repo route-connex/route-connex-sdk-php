@@ -1,17 +1,17 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Concerns;
+namespace RouteConnex\RouteConnexSdkPhp\Concerns;
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\ElementrouteEndpoint;
-use ElementRoute\ElementRouteSdkPhp\Endpoints\HpeContentManagerEndpoint;
-use ElementRoute\ElementRouteSdkPhp\Endpoints\MicrosoftSharepointEndpoint;
-use ElementRoute\ElementRouteSdkPhp\Endpoints\RunEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\HpeContentManagerEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\MicrosoftSharepointEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\RouteConnexEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\RunEndpoint;
 
 trait HasEndpoints
 {
-    public function elementroute(): ElementrouteEndpoint
+    public function routeConnex(): RouteConnexEndpoint
     {
-        return new ElementrouteEndpoint($this);
+        return new RouteConnexEndpoint($this);
     }
 
     public function run(): RunEndpoint

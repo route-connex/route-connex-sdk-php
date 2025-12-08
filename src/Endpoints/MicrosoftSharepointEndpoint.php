@@ -1,8 +1,8 @@
 <?php
 
-namespace ElementRoute\ElementRouteSdkPhp\Endpoints;
+namespace RouteConnex\RouteConnexSdkPhp\Endpoints;
 
-use ElementRoute\ElementRouteSdkPhp\Endpoints\MicrosoftSharepoint\FilesEndpoint;
+use RouteConnex\RouteConnexSdkPhp\Endpoints\MicrosoftSharepoint\FilesEndpoint;
 
 class MicrosoftSharepointEndpoint extends Endpoint
 {
