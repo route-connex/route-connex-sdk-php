@@ -3,6 +3,7 @@
     "description": "PHP SDK for RouteConnex API",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.3a",
     "authors": [
         {
             "name": "Leo Oberle",
