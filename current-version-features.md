@@ -1,5 +1,7 @@
 # 1.0.3a
 
+* Add support to `GET microsoft-sharepoint/drive-columns` service
+
 ---
 
 # 1.0.2
