@@ -24,6 +24,6 @@ trait RunsHttpRequests
             $options['headers']['Authorization'] = 'Bearer '.$this->getToken();
         }
 
-        return $this->client->request($httpMethod->value, $this->getFullUri($path), $options);
+        return $this->client->request(strtoupper($httpMethod->value), $this->getFullUri($path), $options);
     }
 }

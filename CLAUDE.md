@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-PHP SDK (library, PHP ^8.1, Guzzle 7) for the RouteConnex API. Namespace `RouteConnex\RouteConnexSdkPhp\` maps to `src/`; tests use `RouteConnex\RouteConnexSdkPhp\Tests\` → `tests/`.
+PHP SDK (library, PHP ^8.1, Guzzle ^7.9 || ^8.0) for the RouteConnex API. Namespace `RouteConnex\RouteConnexSdkPhp\` maps to `src/`; tests use `RouteConnex\RouteConnexSdkPhp\Tests\` → `tests/`.
 
 ## Commands
 
@@ -20,11 +20,13 @@ make lint                                      # Laravel Pint (PSR-12 / Laravel 
 make composer ARGS="..."                       # any composer command
 ```
 
-`docker-compose.yml` uses host networking so `BASE_URL` resolves like on the host. Test files referenced by `TEST_FILE_PATH`/`TEST_LARGE_FILE_PATH` must be mounted into the container via an untracked `docker-compose.override.yml` (see the comment in `docker-compose.yml`).
+`docker-compose.yml` uses host networking so `BASE_URL` resolves like on the host.
 
 ### Tests hit a live API
 
 There are no HTTP mocks. `tests/TestCase.php` loads `.env` (see `.env.example`) in `setUp()` and **requires every listed variable to be non-empty** — even pure unit tests fail without a complete `.env`. Feature tests call a real RouteConnex instance at `BASE_URL` using separate client credentials per integration (`MS_SP_*` for SharePoint, `HPE_CM_*` for HPE Content Manager); use `makeErClientForMicrosoftSharepoint()` / `makeErClientForHpeContentManager()` and the matching `get*TestConfig()` helpers. Validation failures from the API surface as Guzzle `ServerException`.
+
+Upload tests (`files()->post()`, `records()->post()`) are `->skip()`ped by default because they push real files to SharePoint / HPE. Their `file_path` is **not a local path**: the SDK sends it as a plain string and the server fetches that object key from the route connection's configured S3 bucket. So `TEST_FILE_PATH` / `TEST_LARGE_FILE_PATH` are S3 keys (e.g. `testing/test-upload-file.pdf`), and nothing is mounted into the container. The fixtures to put in the bucket are committed in the repo: `tests/test-upload-file.pdf` and `tests/test-upload-file-large.pdf`.
 
 ## Architecture
 

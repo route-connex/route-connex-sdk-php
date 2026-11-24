@@ -5,6 +5,7 @@ PHP SDK for the [RouteConnex API](https://www.routeconnex.com)
 ## Requirements
 
 - PHP 8.1 or higher
+- Guzzle 7.9+ or 8.x
 - Composer
 
 ## Installation
@@ -342,9 +343,9 @@ HPE_CM_CONTAINER_ID=container-123
 HPE_CM_AUTHOR_ID=author-id
 HPE_CM_AUTHOR_EMAIL=author@example.com
 
-# Test Files
-TEST_FILE_PATH=/path/to/test/file.pdf
-TEST_LARGE_FILE_PATH=/path/to/large/file.pdf
+# Test Files (object keys in the route connection's S3 bucket, not local paths)
+TEST_FILE_PATH=testing/test-upload-file.pdf
+TEST_LARGE_FILE_PATH=testing/test-upload-file-large.pdf
 ```
 
 ### Running Tests
@@ -380,4 +381,6 @@ make composer ARGS="require foo/bar"   # any composer command
 make shell      # shell inside the container
 ```
 
-The container uses host networking so `BASE_URL` resolves as it does on your machine. Mount the directory of `TEST_FILE_PATH` / `TEST_LARGE_FILE_PATH` into the container (e.g. via an untracked `docker-compose.override.yml`, see `docker-compose.yml`) so upload tests can read the files.
+The container uses host networking so `BASE_URL` resolves as it does on your machine.
+
+Upload tests are skipped by default because they push real files to SharePoint / HPE. To run them, upload `tests/test-upload-file.pdf` and `tests/test-upload-file-large.pdf` to the S3 bucket configured on the route connection and set `TEST_FILE_PATH` / `TEST_LARGE_FILE_PATH` to their object keys: the API reads the file from S3, not from your machine or the container.

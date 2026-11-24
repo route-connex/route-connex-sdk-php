@@ -13,12 +13,6 @@ services:
     volumes:
       - .:/app
       - composer-cache:/home/app/.composer
-    # Upload tests read TEST_FILE_PATH / TEST_LARGE_FILE_PATH (.env): mount their
-    # directory at the same path in an untracked docker-compose.override.yml:
-    #   services:
-    #     app:
-    #       volumes:
-    #         - /path/to/test-files:/path/to/test-files:ro
 
 volumes:
   composer-cache:
