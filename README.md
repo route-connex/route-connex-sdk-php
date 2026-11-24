@@ -366,3 +366,18 @@ The SDK follows PSR-12 coding standards. Lint your code using Laravel Pint:
 ```bash
 composer lint
 ```
+
+### Docker (PHP 8.1)
+
+No local PHP is needed: everything runs in Docker on PHP 8.1, the minimum supported version, through `make` (run `make help` for the full list).
+
+```bash
+make build      # build the PHP 8.1 image
+make install    # composer install
+make test       # Pest; ARGS are passed to Pest: make test ARGS="--filter=Foo"
+make lint       # fix code style with Pint
+make composer ARGS="require foo/bar"   # any composer command
+make shell      # shell inside the container
+```
+
+The container uses host networking so `BASE_URL` resolves as it does on your machine. Mount the directory of `TEST_FILE_PATH` / `TEST_LARGE_FILE_PATH` into the container (e.g. via an untracked `docker-compose.override.yml`, see `docker-compose.yml`) so upload tests can read the files.

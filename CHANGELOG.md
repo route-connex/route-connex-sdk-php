@@ -1,6 +1,10 @@
 # 1.1.1a
 
 * Fix boost skill
+* Update composer dependencies
+
+* DEV - Add docker compose
+* DEV - Add CLAUDE.md file
 
 ---
 

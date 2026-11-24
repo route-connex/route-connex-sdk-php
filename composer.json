@@ -23,6 +23,13 @@
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
+        },
+        "policy": {
+            "advisories": {
+                "ignore-id": {
+                    "PKSA-z3gr-8qht-p93v": "CVE-2026-24765 (phpunit/phpunit <10.5.62, PHPT code coverage). Pest 2.36.0, the last release supporting PHP 8.1, pins phpunit/phpunit to 10.5.36. Dev-only; this project has no PHPT tests."
+                }
+            }
         }
     },
     "autoload": {

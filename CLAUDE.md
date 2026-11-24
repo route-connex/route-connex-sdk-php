@@ -8,12 +8,19 @@ PHP SDK (library, PHP ^8.1, Guzzle 7) for the RouteConnex API. Namespace `RouteC
 
 ## Commands
 
+Run everything through Docker with `make` (see `make help`): the image is pinned to PHP 8.1, the minimum supported version, and must stay on 8.1. The host PHP may be newer, so don't treat a host `composer test` run as proof of 8.1 compatibility.
+
 ```bash
-composer test                                  # run all Pest tests
-vendor/bin/pest tests/Feature/Endpoints/MicrosoftSharepoint/DriveColumnsEndpointTest.php   # one file
-vendor/bin/pest --filter="requires authentication"                                         # by test name
-composer lint                                  # Laravel Pint (PSR-12 / Laravel style)
+make build                                     # build the PHP 8.1 image
+make install                                   # composer install
+make test                                      # run all Pest tests
+make test ARGS="tests/Feature/Endpoints/MicrosoftSharepoint/DriveColumnsEndpointTest.php"   # one file
+make test ARGS='--filter="requires authentication"'                                         # by test name
+make lint                                      # Laravel Pint (PSR-12 / Laravel style)
+make composer ARGS="..."                       # any composer command
 ```
+
+`docker-compose.yml` uses host networking so `BASE_URL` resolves like on the host. Test files referenced by `TEST_FILE_PATH`/`TEST_LARGE_FILE_PATH` must be mounted into the container via an untracked `docker-compose.override.yml` (see the comment in `docker-compose.yml`).
 
 ### Tests hit a live API
 
@@ -41,8 +48,8 @@ Group classes expose children through methods (`files()`, `driveColumns()`). Pat
 
 ### Adding an endpoint
 
-Follow the pattern from commit `3fe366d` (drive-columns): leaf class under the group's subfolder, accessor method on the group class, a Feature test mirroring the folder structure (path, allowed method, auth, live call, fluent call, missing-param error), and an entry in `current-version-features.md`. Also update `README.md` and `resources/boost/skills/route-connex-sdk-development/SKILL.md` (a Laravel Boost skill shipped for consumers of the SDK).
+Follow the pattern from commit `3fe366d` (drive-columns): leaf class under the group's subfolder, accessor method on the group class, a Feature test mirroring the folder structure (path, allowed method, auth, live call, fluent call, missing-param error), and an entry in `CHANGELOG.md`. Also update `README.md` and `resources/boost/skills/route-connex-sdk-development/SKILL.md` (a Laravel Boost skill shipped for consumers of the SDK).
 
 ## Releases
 
-The version lives in three places that must be bumped together: `composer.json` (`version`), `current-version`, and the top heading of `current-version-features.md` (changelog, newest first). Releases are tagged `vX.Y.Z`.
+The version lives in three places that must be bumped together: `composer.json` (`version`), `version`, and the top heading of `CHANGELOG.md` (newest first). Releases are tagged `vX.Y.Z`.

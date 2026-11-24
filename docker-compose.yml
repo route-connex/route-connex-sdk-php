@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: docker/php
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    image: route-connex-sdk-php
+    working_dir: /app
+    # Feature tests call the live API at BASE_URL (.env): use the host network so
+    # hosts from /etc/hosts (e.g. routeconnex.local) resolve as they do locally.
+    network_mode: host
+    volumes:
+      - .:/app
+      - composer-cache:/home/app/.composer
+    # Upload tests read TEST_FILE_PATH / TEST_LARGE_FILE_PATH (.env): mount their
+    # directory at the same path in an untracked docker-compose.override.yml:
+    #   services:
+    #     app:
+    #       volumes:
+    #         - /path/to/test-files:/path/to/test-files:ro
+
+volumes:
+  composer-cache:
