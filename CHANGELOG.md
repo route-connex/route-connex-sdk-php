@@ -1,3 +1,9 @@
+# 1.1.1a
+
+* Fix boost skill
+
+---
+
 # 1.1.0
 
 * Add support to `GET microsoft-sharepoint/drive-columns` service

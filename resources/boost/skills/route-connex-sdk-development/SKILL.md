@@ -12,14 +12,14 @@ Use this skill when integrating a Laravel application with the RouteConnex API â
 ## Installation
 
 ```bash
-composer require route-connex/sdk
+composer require route-connex/route-connex-sdk-php
 ```
 
 ## Client Initialization
 
 ```php
-use RouteConnex\ErClient;
-use RouteConnex\ApiVersion;
+use RouteConnex\RouteConnexSdkPhp\ErClient;
+use RouteConnex\RouteConnexSdkPhp\ApiVersion;
 
 $client = ErClient::make(
     clientId: config('route-connex.client_id'),
@@ -152,9 +152,9 @@ Run statuses: `created`, `queued`, `running`, `succeeded`, `failed`.
 ```php
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
-use RouteConnex\Exceptions\NotAuthenticatedException;
-use RouteConnex\Exceptions\InvalidHttpMethodException;
-use RouteConnex\Exceptions\InvalidEndpointException;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\NotAuthenticatedException;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidHttpMethodException;
+use RouteConnex\RouteConnexSdkPhp\Exceptions\InvalidEndpointException;
 
 try {
     $response = $client->microsoftSharepoint()->files()->post(body: [...]);
