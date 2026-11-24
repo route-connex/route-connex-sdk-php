@@ -1,4 +1,4 @@
-# 1.2.0a
+# 1.2.0
 
 * Allow Guzzle 8 (`guzzlehttp/guzzle: ^7.9 || ^8.0`); Guzzle 7.9+ keeps working
 * Send HTTP methods in uppercase (Guzzle 8 no longer uppercases them)
